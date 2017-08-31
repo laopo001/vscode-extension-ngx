@@ -639,7 +639,7 @@
 			]
 		},
 		"code-double-quoted": {
-			"begin": "(?<=(\\]|\\))\\=)\"",
+			"begin": "(?<=(\\]|\\))\\=)\"|(?<=\\*ngFor\\=)\"|(?<=\\*ngIf\\=)\"",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.control.ts"
@@ -683,7 +683,7 @@
 			]
 		},
 		"code-single-quoted": {
-			"begin": "(?<=(\\]|\\))\\=)'",
+			"begin": "(?<=(\\]|\\))\\=)'|(?<=\\*ngFor\\=)'|(?<=\\*ngIf\\=)'",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.control.ts"
