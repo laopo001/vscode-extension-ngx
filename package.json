@@ -14,7 +14,6 @@
   },
   "main": "./out/src/extension",
   "activationEvents": [
-    "onCommand:extension.sayHello",
     "onLanguage:ngx",
     "onLanguage:html"
   ],

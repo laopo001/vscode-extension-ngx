@@ -2,10 +2,11 @@ import * as fs from "fs";
 import * as ts from "typescript";
 import * as path from 'path'
 let services = null
+let pathdirTemp=null;
 export function createService(pathdir: string, options: ts.CompilerOptions): ts.LanguageService {
     // debugger
-    // if (services != null) { return services; }
-
+    // if (pathdirTemp == pathdir&&services!=null) { return services; }
+    pathdirTemp=pathdir;
     let rootFileNames: string[] = fs.readdirSync(pathdir).filter(fileName => fileName.length >= 3 && fileName.substr(fileName.length - 3, 3) === ".ts")
     const files: ts.MapLike<{ version: number }> = {};
     // initialize the list of files
