@@ -20,7 +20,7 @@ export function activate(context: vs.ExtensionContext) {
         }); */
 
 
-    let action = vs.languages.registerCompletionItemProvider(['html', 'typescript'], new AutoHelp(), '.')
+    let action = vs.languages.registerCompletionItemProvider(['html'], new AutoHelp(), '.')
     context.subscriptions.push(action);
 }
 
