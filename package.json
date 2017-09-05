@@ -2,7 +2,7 @@
   "name": "ngx",
   "displayName": "ngx",
   "description": "ngx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "dadigua",
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
