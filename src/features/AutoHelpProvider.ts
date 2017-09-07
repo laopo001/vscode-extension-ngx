@@ -16,12 +16,12 @@ export class AutoHelp implements vs.CompletionItemProvider {
             startPosition = new vs.Position(position.line, position.character - word.length);
         }
         console.log(word);
-
+        console.log(vs.workspace.rootPath);
         let path_obj = path.parse(document.fileName);
         let service = createService(path_obj.dir, { module: ts.ModuleKind.CommonJS });
-        // let fileName = path_obj.name + '.ts'
         fs.readdirSync(path_obj.dir).filter(fileName => fileName.length >= 3 && fileName.substr(fileName.length - 3, 3) === ".ts").forEach((fileName) => {
             let source = service.getProgram().getSourceFile(fileName);
+
             let checker = service.getProgram().getTypeChecker();
             let index = source.text.indexOf(path_obj.base);
             if (index > 0) {
@@ -64,14 +64,12 @@ export class AutoHelp implements vs.CompletionItemProvider {
                         items.push(item)
                     } else {
                         if (x.symbol.name === key && x.initializer && x.initializer.kind === ts.SyntaxKind.ObjectLiteralExpression) {
-
                             runObj(x.initializer.symbol.members, keys)
                         }
                     }
                 })
             }
             function runObj(keyValue: any[], keys: string[]) {
-                // debugger;
                 items = [];
                 let key = keys.pop()
                 keyValue.forEach((x) => {
@@ -95,10 +93,7 @@ export class AutoHelp implements vs.CompletionItemProvider {
             }
 
         })
-        // if (fs.existsSync(path.resolve(path_obj.dir, fileName))) {
-
-        // } else { console.log('文件不存在！') }
-
+        
         return Promise.resolve(items);
     }
     getWord(currentLine: string, currentPosition: number): string {
@@ -113,17 +108,6 @@ export class AutoHelp implements vs.CompletionItemProvider {
             }
         }
         if (start == -1) { return '' };
-        // let end = -1;
-        // for (var i = currentPosition; i <= currentLine.length; i++) {
-        //     var c = currentLine[i];
-        //     if (i == currentPosition && c == '.') { continue; }
-
-        //     if (c == '\'' || c == '"' || c == ' ' || c == '\t' || c == '.') {
-        //         end = i;
-        //         break;
-        //     }
-        // }
-        // if (end == -1) { return '' };
         return currentLine.substring(start + 1, currentPosition);
     }
 

@@ -21,20 +21,14 @@
     "Languages","Other"
   ],
   "contributes": {
-    "commands": [
-      {
-        "command": "extension.sayHello",
-        "title": "Hello World"
-      }
-    ],
     "languages": [
       {
         "id": "html",
         "aliases": [
-          "ngx"
+          "html"
         ],
         "extensions": [
-          ".ngx"
+          ".html"
         ]
       }
     ],
