@@ -1,1 +1,1 @@
-一个更符合angular模板语法的格式
+添加html对angular模板语法的支持
