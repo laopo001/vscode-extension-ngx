@@ -651,10 +651,40 @@
 					"name": "keyword.control.ts"
 				}
 			},
-			"name": "source.ts",
 			"patterns": [
 				{
-					"match": "\\\\.",
+					"match": "\\?\\.",
+					"name": "punctuation.accessor.ts"
+				},
+				{
+					"include": "#pipe"
+				},
+				{
+					"match": "\\.",
+					"include": "source.ts"
+				}
+			]
+		},
+		"pipe": {
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+					"name": "meta.brace.round.ts"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "meta.brace.round.ts"
+				}
+			},
+			"patterns": [
+				{
+					"match": "(?<=\\|)[^\\(\\)]*",
+					"name": "entity.name.function.ts"
+				},
+				{
+					"match": "\\.",
 					"include": "source.ts"
 				}
 			]
@@ -695,10 +725,16 @@
 					"name": "keyword.control.ts"
 				}
 			},
-			"name": "source.ts",
 			"patterns": [
 				{
-					"match": "\\\\.",
+					"match": "\\?\\.",
+					"name": "punctuation.accessor.ts"
+				},
+				{
+					"include": "#pipe"
+				},
+				{
+					"match": "\\.",
 					"include": "source.ts"
 				}
 			]

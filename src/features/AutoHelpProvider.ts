@@ -16,7 +16,7 @@ export class AutoHelp implements vs.CompletionItemProvider {
             startPosition = new vs.Position(position.line, position.character - word.length);
         }
         console.log(word);
-        console.log(vs.workspace.rootPath);
+        // console.log(vs.workspace.rootPath);
         let path_obj = path.parse(document.fileName);
         let service = createService(path_obj.dir, { module: ts.ModuleKind.CommonJS });
         fs.readdirSync(path_obj.dir).filter(fileName => fileName.length >= 3 && fileName.substr(fileName.length - 3, 3) === ".ts").forEach((fileName) => {
@@ -28,7 +28,7 @@ export class AutoHelp implements vs.CompletionItemProvider {
                 let visit = (node: ts.Node) => {
                     if (node.kind === ts.SyntaxKind.ClassDeclaration) {
                         if (word != '') {
-                            getComponentInfo(node, word.split('.').filter(x => x !== '').reverse())
+                            getComponentInfo(node, word.replace(/\((\w+)*\|\w+\)/g,'$1').split(/\??\./).filter(x => x !== '').reverse())
                         }
 
                     }

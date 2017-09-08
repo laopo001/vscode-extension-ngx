@@ -2,7 +2,7 @@
   "name": "ngx",
   "displayName": "ngx",
   "description": "ngx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "dadigua",
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
@@ -18,7 +18,8 @@
     "onLanguage:html"
   ],
   "categories": [
-    "Languages","Other"
+    "Languages",
+    "Other"
   ],
   "contributes": {
     "languages": [
@@ -42,8 +43,7 @@
           "source.css": "css",
           "source.js": "javascript",
           "source.python": "python",
-          "source.smarty": "smarty",
-          "source.ts": "typescript"
+          "source.smarty": "smarty"
         }
       }
     ]
